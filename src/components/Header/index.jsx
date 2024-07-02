@@ -7,31 +7,24 @@ import { FaSearch } from "react-icons/fa";
 import { PiShoppingCartBold } from "react-icons/pi";
 import { IoMdSearch } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  darkMode,
-  lightMode,
-  productSearch,
-  setTheme,
-} from "../../redux/CreateProductSlice";
+import { productSearch, setTheme } from "../../redux/CreateProductSlice";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const Header = () => {
   const [hidenInput, setHidenInput] = useState(false);
   const [searchProduct, setsearchproduct] = useState("");
-  const { dark, light, theme } = useSelector((s) => s.main);
+  const { theme } = useSelector((s) => s.main);
   const dispatch = useDispatch();
   const nav = useNavigate();
 
   const darkTheme = () => {
-    dispatch(setTheme(true))
+    dispatch(setTheme(true));
     localStorage.setItem("theme", JSON.stringify(!theme));
-  }
+  };
   const lightTheme = () => {
     dispatch(setTheme(false));
     localStorage.setItem("theme", JSON.stringify(!theme));
-  }
-
-
+  };
 
   useEffect(() => {}, []);
 

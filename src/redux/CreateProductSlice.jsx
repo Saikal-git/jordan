@@ -36,8 +36,6 @@ export const {
   createProduct,
   productDelete,
   productSearch,
-  darkMode,
-  lightMode,
   setTheme,
 } = CreateProductSlice.actions;
 export default CreateProductSlice.reducer;

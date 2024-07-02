@@ -9,7 +9,7 @@ const CreateProduct = () => {
   const [productDes, setProductDes] = useState("");
   const [productCategory, setProductCategory] = useState("");
 
-  const { product, dark } = useSelector((s) => s.main);
+  const { product, dark, theme } = useSelector((s) => s.main);
   console.log(product, "pro");
   const dispatch = useDispatch();
 
@@ -58,9 +58,9 @@ const CreateProduct = () => {
               name="repeat_password"
               id="floating_repeat_password"
               className={`block py-2.5 px-0 w-full text-2xl ${
-                dark ? "text-white " : "text-black"
+                theme ? "text-white " : "text-black"
               } bg-transparent appearance-none border-0 ${
-                dark
+                theme
                   ? "border-b-2 border-gray-300   dark:text-white dark:border-white dark:focus:border-white focus:border-white peer"
                   : "border-b-2 border-black   dark:text-black dark:border-black dark:focus:border-black focus:border-black peer"
               }  focus:outline-none focus:ring-0`}
@@ -69,7 +69,7 @@ const CreateProduct = () => {
             <label
               htmlFor="floating_repeat_password"
               className={`peer-focus:font-medium absolute text-2xl duration-300 transhtmlform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 ${
-                dark
+                theme
                   ? " peer-focus:text-white peer-focus:dark:text-white  text-gray-500 dark:text-gray-400"
                   : " peer-focus:text-black peer-focus:dark:text-black  text-black dark:text-black"
               } peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
@@ -85,9 +85,9 @@ const CreateProduct = () => {
               name="repeat_password"
               id="floating_repeat_password"
               className={`block py-2.5 px-0 w-full text-2xl ${
-                dark ? "text-white " : "text-black"
+                theme ? "text-white " : "text-black"
               } bg-transparent appearance-none border-0 ${
-                dark
+                theme
                   ? "border-b-2 border-gray-300   dark:text-white dark:border-white dark:focus:border-white focus:border-white peer"
                   : "border-b-2 border-black   dark:text-black dark:border-black dark:focus:border-black focus:border-black peer"
               }  focus:outline-none focus:ring-0`}
@@ -96,7 +96,7 @@ const CreateProduct = () => {
             <label
               htmlFor="floating_repeat_password"
               className={`peer-focus:font-medium absolute text-2xl duration-300 transhtmlform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 ${
-                dark
+                theme
                   ? " peer-focus:text-white peer-focus:dark:text-white  text-gray-500 dark:text-gray-400"
                   : " peer-focus:text-black peer-focus:dark:text-black  text-black dark:text-black"
               } peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
@@ -112,9 +112,9 @@ const CreateProduct = () => {
               name="repeat_password"
               id="floating_repeat_password"
               className={`block py-2.5 px-0 w-full text-2xl ${
-                dark ? "text-white " : "text-black"
+                theme ? "text-white " : "text-black"
               } bg-transparent appearance-none border-0 ${
-                dark
+                theme
                   ? "border-b-2 border-gray-300   dark:text-white dark:border-white dark:focus:border-white focus:border-white peer"
                   : "border-b-2 border-black   dark:text-black dark:border-black dark:focus:border-black focus:border-black peer"
               }  focus:outline-none focus:ring-0`}
@@ -123,7 +123,7 @@ const CreateProduct = () => {
             <label
               htmlFor="floating_repeat_password"
               className={`peer-focus:font-medium absolute text-2xl duration-300 transhtmlform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 ${
-                dark
+                theme
                   ? " peer-focus:text-white peer-focus:dark:text-white  text-gray-500 dark:text-gray-400"
                   : " peer-focus:text-black peer-focus:dark:text-black  text-black dark:text-black"
               } peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
@@ -139,9 +139,9 @@ const CreateProduct = () => {
               name="repeat_password"
               id="floating_repeat_password"
               className={`block py-2.5 px-0 w-full text-2xl ${
-                dark ? "text-white " : "text-black"
+                theme ? "text-white " : "text-black"
               } bg-transparent appearance-none border-0 ${
-                dark
+                theme
                   ? "border-b-2 border-gray-300   dark:text-white dark:border-white dark:focus:border-white focus:border-white peer"
                   : "border-b-2 border-black   dark:text-black dark:border-black dark:focus:border-black focus:border-black peer"
               }  focus:outline-none focus:ring-0`}
@@ -150,7 +150,7 @@ const CreateProduct = () => {
             <label
               htmlFor="floating_repeat_password"
               className={`peer-focus:font-medium absolute text-2xl duration-300 transhtmlform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 ${
-                dark
+                theme
                   ? " peer-focus:text-white peer-focus:dark:text-white  text-gray-500 dark:text-gray-400"
                   : " peer-focus:text-black peer-focus:dark:text-black  text-black dark:text-black"
               } peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
@@ -162,7 +162,7 @@ const CreateProduct = () => {
             onChange={(e) => setProductCategory(e.target.value)}
             value={productCategory}
             className={` text-2xl py-[10px] px-[10px] w-full ${
-              dark
+              theme
                 ? "  bg-black border-2 border-solid border-white text-white"
                 : "bg-white border-2 border-solid border-black text-black"
             }`}
@@ -175,8 +175,8 @@ const CreateProduct = () => {
             onClick={() => addProduct()}
             className="text-black font-bold bg-white hover:bg-white focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-2xl w-full sm:w-auto px-5 py-2.5 text-center dark:bg-white dark:hover:bg-white dark:focus:ring-white"
             style={{
-              background: dark ? "white" : "black",
-              color: dark ? "black" : "white",
+              background: theme ? "white" : "black",
+              color: theme ? "black" : "white",
             }}
           >
             Create
