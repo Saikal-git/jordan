@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/logos.png";
 import jordan from "../../assets/jordan.png";
 import nike from "../../assets/nike.png";
@@ -11,20 +11,35 @@ import {
   darkMode,
   lightMode,
   productSearch,
+  setTheme,
 } from "../../redux/CreateProductSlice";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const Header = () => {
   const [hidenInput, setHidenInput] = useState(false);
   const [searchProduct, setsearchproduct] = useState("");
-  const { dark, light } = useSelector((s) => s.main);
+  const { dark, light, theme } = useSelector((s) => s.main);
   const dispatch = useDispatch();
   const nav = useNavigate();
+
+  const darkTheme = () => {
+    dispatch(setTheme(true))
+    localStorage.setItem("theme", JSON.stringify(!theme));
+  }
+  const lightTheme = () => {
+    dispatch(setTheme(false));
+    localStorage.setItem("theme", JSON.stringify(!theme));
+  }
+
+
+
+  useEffect(() => {}, []);
+
   return (
     <div className="py-[30px]">
       <div className="container">
         <div className="flex items-center justify-between">
-          {dark ? (
+          {theme ? (
             <img src={logo} alt="img" />
           ) : (
             <div className="flex items-center gap-3">
@@ -35,7 +50,7 @@ const Header = () => {
           <div
             className="flex items-center gap-10"
             style={{
-              color: dark ? "white" : "black",
+              color: theme ? "white" : "black",
             }}
           >
             <Link to={`/`} className="text-2xl font-black">
@@ -67,21 +82,22 @@ const Header = () => {
                   }
                 }}
                 value={searchProduct}
-                className="text-2xl z-[3] w-[240px] bg-transparent border-2 border-solid border-white text-white rounded-[10px]"
+                className="text-2xl z-[3] w-[240px] pl-[7px] bg-transparent border-2 border-solid border-white text-white rounded-[10px]"
                 placeholder="  search"
                 style={{
                   position: "absolute",
                   right: hidenInput ? "-5px" : "0",
                   transition: "1s",
                   opacity: hidenInput ? "1" : "0",
-                  border: dark ? "2px solid white" : "2px solid black",
+                  border: theme ? "2px solid white" : "2px solid black",
+                  color: theme ? "white" : "black",
                 }}
               />
               <a
                 className="text-[30px] z-[6] text-white cursor-pointer"
                 onClick={() => setHidenInput(!hidenInput)}
                 style={{
-                  color: dark ? "white" : "black",
+                  color: theme ? "white" : "black",
                 }}
               >
                 <IoMdSearch />
@@ -91,7 +107,7 @@ const Header = () => {
               onClick={() => nav(`/basket`)}
               className="text-[30px] z-[6] text-white"
               style={{
-                color: dark ? "white" : "black",
+                color: theme ? "white" : "black",
               }}
             >
               <PiShoppingCartBold />
@@ -99,11 +115,11 @@ const Header = () => {
             <div className="flex gap-[1px]">
               <button
                 onClick={() => {
-                  dispatch(darkMode());
+                  darkTheme();
                 }}
                 style={{
-                  background: dark ? "white" : "black",
-                  color: dark ? "black" : "white",
+                  background: theme ? "white" : "black",
+                  color: theme ? "black" : "white",
                 }}
                 className="flex flex-col items-center justify-center text-[20px] bg-white border-2px border-solid border-black w-[35px] h-[35px] rounded-tl-[30px] rounded-bl-[30px] text-black"
               >
@@ -111,12 +127,12 @@ const Header = () => {
               </button>
               <button
                 onClick={() => {
-                  dispatch(lightMode());
-                  darkMode(false);
+                  lightTheme();
+                  // dispatch(lightMode());
                 }}
                 style={{
-                  background: light ? "black" : "white",
-                  color: light ? "white" : "black",
+                  background: !theme ? "black" : "white",
+                  color: !theme ? "white" : "black",
                 }}
                 className="flex items-center justify-center text-[20px] bg-white border-2px border-solid border-black w-[40px] h-[35px] rounded-tr-[35px] rounded-br-[30px] text-black"
               >

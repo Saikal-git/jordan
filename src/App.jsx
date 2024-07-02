@@ -13,16 +13,17 @@ import Basket from "./components/Basket";
 import { useSelector } from "react-redux";
 
 const App = () => {
-  const { dark, light } = useSelector((s) => s.main);
-
+  const { dark, light, theme } = useSelector((s) => s.main);
+  // let dark = JSON.parse(localStorage.getItem("light"));
+  
   return (
     <div
       style={{
-        background: dark ? "black" : "white",
+        background: theme ? "black" : "white",
         height: "100%",
         minHeight: "110vh",
       }}
-    >
+    > 
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

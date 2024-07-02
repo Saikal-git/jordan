@@ -11,7 +11,7 @@ const Search = () => {
         <div className="">
           {search.map((el) => (
             <div
-              className="relative w-[400px] h-[600px] flex items-center justify-center flex-col gap-7 p-[18px] bg-white rounded-sm"
+              className="box relative w-[400px] h-[600px] flex items-center justify-center flex-col gap-7 p-[18px] bg-white rounded-sm"
               key={el.id}
             >
               <img src={el.url} alt="img" width={280} />

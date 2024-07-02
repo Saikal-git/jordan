@@ -3,8 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   product: JSON.parse(localStorage.getItem("product")) || [],
   search: [],
-  dark: true,
-  light: false,
+  theme: JSON.parse(localStorage.getItem("theme")) === false ? false : true,
 };
 
 export const CreateProductSlice = createSlice({
@@ -28,17 +27,8 @@ export const CreateProductSlice = createSlice({
       );
       state.search = filterSearch;
     },
-    darkMode(state, action) {
-      state.dark = true;
-      state.light = false;
-      // localStorage.setItem("dark", JSON.stringify(true));
-      // localStorage.setItem("light", JSON.stringify(false));
-    },
-    lightMode(state, action) {
-      state.dark = false;
-      state.light = true;
-      //   localStorage.setItem("dark", JSON.stringify(false));
-      //   localStorage.setItem("light", JSON.stringify(true));
+    setTheme(state, action) {
+      state.theme = action.payload;
     },
   },
 });
@@ -48,5 +38,6 @@ export const {
   productSearch,
   darkMode,
   lightMode,
+  setTheme,
 } = CreateProductSlice.actions;
 export default CreateProductSlice.reducer;
