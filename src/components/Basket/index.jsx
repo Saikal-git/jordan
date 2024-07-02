@@ -13,6 +13,7 @@ const Basket = () => {
   const { basket } = useSelector((s) => s.basket);
   console.log(basket, "bas");
   const dispatch = useDispatch();
+  const { theme } = useSelector((s) => s.main);
 
   const totalPrice = basket.reduce((acc, el) => {
     return acc + +el.price * el.quantity;
@@ -143,7 +144,9 @@ const Basket = () => {
             </div>
 
             <div className="flex items-center justify-between">
-              <h1 className="text-[30px]">
+              <h1
+                className={`text-[30px] ${theme ? "text-white" : "text-black"}`}
+              >
                 Total Price:
                 <CountUp
                   start={0}
